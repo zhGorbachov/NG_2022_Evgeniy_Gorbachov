@@ -1,5 +1,3 @@
-import cmath
-
 FirstNumber = float(input("Select first number: "))
 SecondNumber = float(input("Select second number: "))
 SelectAction = input("Select action from (+, -, /, *, square, square root): ")
@@ -17,9 +15,10 @@ else:
                 print(FirstNumber / SecondNumber)
             else:
                 if SelectAction == "square root":
-                    print(cmath.sqrt(FirstNumber + SecondNumber))
+                    print("FirstNumber = " + str(FirstNumber**0.5) +
+                          " SecondNumber = " + str(SecondNumber**0.5))
                 else:
                     if SelectAction == "square":
-                        print((FirstNumber + SecondNumber)**2)
+                        print("FirstNumber = " + str(FirstNumber**2) + " SecondNumber = " + str(SecondNumber**2))
                     else:
                         print("Wrong action!")
