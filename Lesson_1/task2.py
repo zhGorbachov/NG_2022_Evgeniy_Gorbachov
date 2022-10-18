@@ -19,4 +19,7 @@ else:
                 if SelectAction == "square root":
                     print(cmath.sqrt(FirstNumber + SecondNumber))
                 else:
-                    print((FirstNumber + SecondNumber)**2) 
+                    if SelectAction == "square":
+                        print((FirstNumber + SecondNumber)**2)
+                    else:
+                        print("Wrong action!")
