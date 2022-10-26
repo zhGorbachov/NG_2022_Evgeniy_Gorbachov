@@ -1,8 +1,8 @@
-Values = int(input("Enter your number: "))
-while Values >= 1:
-    i = Values
-    while i >= 1:
-        print(i, end=" ")
-        i -= 1
+ValuesMaxString = int(input("Enter your number: "))
+while ValuesMaxString >= 1:
+    ValuesForCalculations = ValuesMaxString
+    while ValuesForCalculations >= 1:
+        print(ValuesForCalculations, end=" ")
+        ValuesForCalculations -= 1
     print(end="\n")
-    Values -= 1
+    ValuesMaxString -= 1
