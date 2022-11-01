@@ -1,5 +1,5 @@
-Text = input("Enter your text, which need to encrypt: ")
-Encryption = str.maketrans("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
-                           "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM")
-TextEncrypted = Text.translate(Encryption)
-print("Your encrypted text: " + str(TextEncrypted))
+Text = input("Enter your text: ")
+Encryption = Text.maketrans("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                            "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM")
+print("=========================")
+print(Text.translate(Encryption))  # Quis custodiet ipsos custodes?
