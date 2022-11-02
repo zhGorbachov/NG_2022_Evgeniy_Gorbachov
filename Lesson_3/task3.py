@@ -1,6 +1,18 @@
 from collections import Counter
 
-Text = input("Enter your text: ")
-Text = Text.split()
-Text = "".join(Text)
-print(Counter(Text))
+
+def askString(Text):
+    return input(Text)
+
+
+def countElements(Text):
+    return print(Counter(Text))
+
+
+def main():
+    Text = askString("Enter your text: ").split(" ")
+    Text = "".join(Text)
+    countElements(Text)
+
+
+main()
