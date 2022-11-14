@@ -1,9 +1,15 @@
 Text = input("Enter your text: ").lower()
 AlphSmallLetters = "abcdefghijklmnopqrstuvwxyz"
-iteration = 1
 
-while iteration < 26:
-    EncryptedText = str.maketrans(AlphSmallLetters, AlphSmallLetters[iteration:]+AlphSmallLetters[:iteration])
-    print("Encrypted text shifted on " + str(iteration) + " letter" + " : " + str(Text.translate(EncryptedText)))
-    EncryptedText = ""
-    iteration += 1
+for key in range(len(AlphSmallLetters)):
+    encrypted = ""
+    for element in Text:
+        if element in AlphSmallLetters:
+            number = AlphSmallLetters.find(element)
+            number = number - key
+            if number < 0:
+                number = number + len(AlphSmallLetters)
+            encrypted = encrypted + AlphSmallLetters[number]
+        else:
+            encrypted = encrypted + element
+    print("Encrypted text №%s: %s" % (key, encrypted))
