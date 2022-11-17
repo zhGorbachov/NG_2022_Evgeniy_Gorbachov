@@ -77,10 +77,7 @@ def menu():
                 ("Virtual memory", "vm")], ), ]
 
     answer_menu = inquirer.prompt(action_menu, theme=GreenPassion())
-    result_menu = []
-    for key in answer_menu:
-        result_menu = answer_menu[key]
-    return result_menu
+    return answer_menu
 
 
 def process():
@@ -88,38 +85,40 @@ def process():
     info("[INFO] Choose variant on space, and confirm on enter.")
     createfile()
     result_menu = menu()
-    number_of_count = 1
-    while True:
-        if 'c' in result_menu:
-            appendfile(number_of_count, findProcessor(), "Name of CPU")
-            result_menu.remove("c")
-        elif 'pc' in result_menu:
-            appendfile(number_of_count, findPhysicalCoresOfCPU(), "Physical cores")
-            result_menu.remove("pc")
-        elif 'lc' in result_menu:
-            appendfile(number_of_count, findLogicalCoresOfCPU(), "Logical cores")
-            result_menu.remove("lc")
-        elif 'a' in result_menu:
-            appendfile(number_of_count, findArchitecture(), "Architecture")
-            result_menu.remove('a')
-        elif 'm' in result_menu:
-            appendfile(number_of_count, findMachine(), "Name of machine")
-            result_menu.remove('m')
-        elif 'n' in result_menu:
-            appendfile(number_of_count, findNode(), "Node name")
-            result_menu.remove('n')
-        elif 's' in result_menu:
-            appendfile(number_of_count, findSystem(), "Name of system")
-            result_menu.remove('s')
-        elif 'pv' in result_menu:
-            appendfile(number_of_count, findVersionOfPython(), "Python version")
-            result_menu.remove('pv')
-        elif 'vm' in result_menu:
-            appendfile(number_of_count, find_virtualMemory(), "Virtual memory")
-            result_menu.remove('vm')
-        else:
-            break
+    number_of_count = 0
+    for element in result_menu["interests"]:
         number_of_count += 1
+        match element:
+            case 'c':
+                appendfile(number_of_count, findProcessor(), "Name of CPU")
+                continue
+            case 'pc':
+                appendfile(number_of_count, findProcessor(), "Physical cores")
+                continue
+            case 'lc':
+                appendfile(number_of_count, findProcessor(), "Logical cores")
+                continue
+            case 'a':
+                appendfile(number_of_count, findProcessor(), "Architecture")
+                continue
+            case 'm':
+                appendfile(number_of_count, findProcessor(), "Name of machine")
+                continue
+            case 'n':
+                appendfile(number_of_count, findProcessor(), "Node name")
+                continue
+            case 's':
+                appendfile(number_of_count, findProcessor(), "Name of system")
+                continue
+            case 'pv':
+                appendfile(number_of_count, findProcessor(), "Python version")
+                continue
+            case 'vm':
+                appendfile(number_of_count, findProcessor(), "Virtual memory")
+                continue
+            case _:
+                print("hello")
+                break
     info("Program shuts down.")
 
 
