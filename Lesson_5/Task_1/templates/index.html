@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <style>
+            .center {
+                margin-top: 40vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+             }
+             .button {
+                 width: 20%;
+                 border: 1;
+                 color: white;
+                 font-size: 20px;
+                 text-align: center;
+                 cursor: pointer;
+            }
+            .buttonAction {background-color: #C38D9E;}
+            .buttonAction:hover{background-color: #E27D60; scale: 0.9;}
+        </style>
+    <title>Too simple and ugly calculator</title>
+    </head>
+    <body>
+        <div class="center">
+        <form action="/calcs" >
+            <label for="firstValue"><b>First value =</b></label>
+            <input type="text" name="firstValue" size="3"><br>
+            <label for="secondValue"><b>Second value =</b></label>
+            <input type="text" name="secondValue" size="3"><br>
+            <label for="action"><b>Choose the action</b></label>
+            <select id="action" name="action">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select><br>
+            <button class="button buttonAction">=</button><br>
+                <label><b>Result = {{result|safe}}</b></label>
+        </form>
+        </div>
+    </body>
+</html>
