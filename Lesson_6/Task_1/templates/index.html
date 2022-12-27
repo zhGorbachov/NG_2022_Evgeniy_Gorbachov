@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Database Example</title>
+    </head>
+    <body>
+        <form action="/register">
+            <label><b>Enter your nickname: </b></label>
+            <input name="login"><br>
+            <label><b>Enter your message: </b></label>
+            <input name="message"><br>
+            <button>SEND!</button>
+        </form>
+        Sended message:
+        <hr />
+        <div id="text">
+            {{users|safe}}
+        </div>
+    </body>
+    <script>
+        function updatePage() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload=function(){
+            document.getElementById("text").innerHTML = this.responseText
+            }
+            xhttp.open("GET", "/updatepage", true);
+            xhttp.send();
+        }
+        window.setInterval(() => {
+            updatePage();
+        }, 1000);
+    </script>
+</html>
