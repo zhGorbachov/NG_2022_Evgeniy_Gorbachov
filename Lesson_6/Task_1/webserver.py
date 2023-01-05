@@ -8,7 +8,7 @@ prepareDb("users.db")
 
 @app.route('/')
 def index():
-    rows = getLogins("users.db")
+    rows = getLoginAndMessage("users.db")
     return render_template("index.html", users=printMessage(rows))
 
 
@@ -22,7 +22,7 @@ def register():
 
 @app.route('/updatepage')
 def update():
-    rows = getLogins("users.db")
+    rows = getLoginAndMessage("users.db")
     return printMessage(rows)
 
 

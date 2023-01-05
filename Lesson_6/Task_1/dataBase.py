@@ -24,7 +24,7 @@ def prepareDb(name):
     conn.close()
 
 
-def getLogins(name):
+def getLoginAndMessage(name):
     connection = init_conn(name)
     sql = "SELECT login, message FROM users;"
     cursor = connection.cursor()
