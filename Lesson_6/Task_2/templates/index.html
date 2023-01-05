@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Configuration of your pc</title>
+</head>
+<body>
+<h3>Select action:</h3>
+<form action="/process">
+    <label>
+        <input type="checkbox" name="configuration" value="cpu">
+        CPU
+    </label><br>
+    <label>
+        <input type="checkbox" name="configuration" value="lc">
+        Logical cores
+    </label><br>
+    <label>
+        <input type="checkbox" name="configuration" value="pc">
+        Physical cores
+    </label><br>
+    <label>
+        <input type="checkbox" name="configuration" value="m">
+        Machine
+    </label><br>
+    <label>
+        <input type="checkbox" name="configuration" value="n">
+        Node name
+    </label><br>
+    <label>
+        <input type="checkbox" name="configuration" value="s">
+        System
+    </label><br>
+    <label>
+        <input type="checkbox" name="configuration" value="pv">
+        Python version
+    </label><br>
+    <label>
+        <input type="checkbox" name="configuration" value="vm">
+        Virtual memory
+    </label><br>
+    <button>Ready!</button>
+</form>
+    <div>{{info|safe}}
+    </div>
+
+</body>
+</html>
