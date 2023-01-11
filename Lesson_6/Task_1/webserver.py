@@ -3,27 +3,27 @@ from dataBase import *
 
 
 app = Flask("Simple chat")
-prepareDb("users.db")
+prepareDataBase("users.db")
 
 
 @app.route('/')
 def index():
-    rows = getLoginAndMessage("users.db")
-    return render_template("index.html", users=printMessage(rows))
+    rows = getNicknamesAndMessageFromDB("users.db")
+    return render_template("index.html", users=printNicknamesAndMessages(rows))
 
 
 @app.route('/register')
 def register():
-    login = request.args.get('login')
+    nickname = request.args.get('nickname')
     message = request.args.get('message')
-    registerUser("users.db", login, message)
+    enterNicknamesAndMessagesInDB("users.db", nickname, message)
     return redirect('/')
 
 
 @app.route('/updatepage')
 def update():
-    rows = getLoginAndMessage("users.db")
-    return printMessage(rows)
+    rows = getNicknamesAndMessageFromDB("users.db")
+    return printNicknamesAndMessages(rows)
 
 
 app.run(host='0.0.0.0', port=2711)

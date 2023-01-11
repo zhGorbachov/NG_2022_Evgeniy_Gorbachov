@@ -2,7 +2,7 @@ import sqlite3
 from sqlite3 import Error
 
 
-def init_conn(path):
+def createConnection(path):
     conn = None
     try:
         conn = sqlite3.connect(path)
@@ -13,20 +13,20 @@ def init_conn(path):
     return conn
 
 
-def init_tables(connection):
-    sql = "CREATE TABLE IF NOT EXISTS users( id integer PRIMARY KEY, login text NOT NULL, message text NOT NULL);"
+def createDataBase(connection):
+    sql = "CREATE TABLE IF NOT EXISTS users( id integer PRIMARY KEY, nickname text NOT NULL, message text NOT NULL);"
     connection.execute(sql)
 
 
-def prepareDb(name):
-    conn = init_conn(name)
-    init_tables(conn)
+def prepareDataBase(name):
+    conn = createConnection(name)
+    createDataBase(conn)
     conn.close()
 
 
-def getLoginAndMessage(name):
-    connection = init_conn(name)
-    sql = "SELECT login, message FROM users;"
+def getNicknamesAndMessageFromDB(name):
+    connection = createConnection(name)
+    sql = "SELECT nickname, message FROM users;"
     cursor = connection.cursor()
     cursor.execute(sql)
     rows = cursor.fetchall()
@@ -34,7 +34,7 @@ def getLoginAndMessage(name):
     return rows
 
 
-def printMessage(rows):
+def printNicknamesAndMessages(rows):
     text = ""
     for row in rows:
         text += "<h3>"
@@ -44,9 +44,9 @@ def printMessage(rows):
     return text
 
 
-def registerUser(db, login, message):
-    connection = init_conn(db)
-    sql = "INSERT INTO users(`login`, `message`) VALUES('{}', '{}')".format(login, message)
+def enterNicknamesAndMessagesInDB(db, nickname, message):
+    connection = createConnection(db)
+    sql = "INSERT INTO users(`nickname`, `message`) VALUES('{}', '{}')".format(nickname, message)
     cursor = connection.cursor()
     cursor.execute(sql)
     connection.commit()
